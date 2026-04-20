@@ -1,0 +1,17 @@
+# Example-Driven River Crossing Direct Prompt
+
+Generate the complete SMSL JSON for the river crossing puzzle.
+
+4 entities: grass, sheep, steve, wolf. 3 locations: 0=red_land, B=boat, 1=green_land.
+Rules: adjacent moves (0↔B, B↔1). Sheep+wolf/grass same non-boat loc without steve → invalid. Boat ≤2, if 2 one is steve.
+
+States: `State_<grass><sheep><steve><wolf>`. 40 valid. Initial: `State_0000`.
+Operations: `move_<entity>_from_<location>_to_<location>`.
+
+Example: State_0000 has operations:
+- `move_steve_from_red_land_to_boat` → `State_00B0`
+(Only steve can move to boat from initial state since non-steve entities need steve's proximity.)
+
+Generate the full JSON with all 40 valid states.
+
+{{SMSL_TEMPLATE}}

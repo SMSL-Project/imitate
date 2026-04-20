@@ -1,0 +1,15 @@
+# Concise Hanoi Direct Prompt
+
+Generate the complete SMSL JSON for the Tower of Hanoi puzzle.
+
+3 stands: a=brown, b=blue, c=red. 3 disks: 1=gray(small), 2=yellow(med), 3=green(large).
+
+Rules: move one disk at a time, only top disk, no larger on smaller.
+
+States: `State_<d1><d2><d3>` (a|b|c). 27 total. Initial: `State_aaa`.
+Operations: `move_<color>_hanoi_ring_to_the_center_of_<stand>_hanoi_stand`.
+Colors: 1→gray, 2→yellow, 3→green. Stands: a→brown, b→blue, c→red.
+
+Under each state, list all valid operations with their resulting states.
+
+{{SMSL_TEMPLATE}}

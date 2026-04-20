@@ -1,0 +1,80 @@
+# Example-Driven Chess Prompt
+
+You are generating phase `{{CURRENT_PHASE_NUMBER}}` for the chess board puzzle.
+Return exactly one fenced Python block. No JSON, no prose.
+
+## Puzzle
+
+2 pieces: star, circle. 9 valid positions: A,B,C,D,a,c,d,0,1. X=impassable.
+
+```
+A B C D
+a X c d
+0 X X 1
+```
+
+- Move between adjacent positions only.
+- Pieces stack: if both on same position, top piece (T) moves first.
+- Moving onto occupied position: arriving piece becomes top (T), other becomes bottom (B).
+
+Adjacency: A:[B,a] B:[A,C] C:[B,D,c] D:[C,d] a:[A,0] c:[C,d] d:[D,c,1] 0:[a] 1:[d]
+
+## Encoding
+
+States: `State_<star_code><circle_code>`. Code = `<pos><layer>` (T=top, B=bottom).
+Different positions → both B. Same position → one T, one B.
+**Parse:** `payload = name[6:]`, `star_code = payload[:2]`, `circle_code = payload[2:]`. Do NOT use `split("_")`.
+Initial: `State_0B1B`. NUM_STATES = 90.
+
+Operations (phases 1–3): `Op_<piece>_<dest>`. Parse: `_, piece, dest = name.split("_", 2)`.
+
+Phase 4 repo: `move-<piece>-chess-to-block-<name>`. A→uppercase-A, B→uppercase-B, C→uppercase-C, D→uppercase-D, a→lowercase-a, c→lowercase-c, d→lowercase-d, 0→0, 1→1.
+
+## Phase roles
+
+- Phase 1: Enumerate all piece-code pairs × 18 operations.
+- Phase 2: Keep valid states only (90). Different pos→both B, same pos→one T one B.
+- Phase 3: Check: (1) source≠target, (2) adjacent, (3) if stacked, piece must be on top (T).
+- Phase 4: Apply move, compute stacking layers, check rules, map to repo names.
+
+## Working example: correct stacking logic from Hanoi (adapt pattern)
+
+```python
+def apply_operation_under_state(state_code, operation_code):
+    # Hanoi: copy state, update only the moved disk
+    disk, target_peg = operation_code
+    new_state = list(state_code)
+    new_state[int(disk) - 1] = target_peg
+    return ''.join(new_state)
+```
+
+For chess, `apply_operation_under_state` must handle stacking:
+- Move piece to target position.
+- If both pieces end at same position: moved piece → T, other → B.
+- If different positions: both → B.
+Return structured state codes (e.g., dict or tuple of `(star_code, circle_code)`).
+
+## Working example: correct transition check (adapt for chess)
+
+```python
+def transition_satisfies_rules(state_code, operation_code, next_state_code):
+    piece = operation_code["piece"]
+    # Verify only moved piece changed
+    other = "circle" if piece == "star" else "star"
+    if state_code[other] != next_state_code[other]:
+        return False
+    # Check adjacency, top-item constraint, valid encoding
+    return True
+```
+
+## Scaffold
+
+Fill the template helpers below. Do not rename or remove them. Each phase script is standalone.
+
+%Reference SMSL JSON shape file%
+
+{{SMSL_TEMPLATE}}
+
+%Phase {{CURRENT_PHASE_NUMBER}} script template file%
+
+{{CURRENT_PHASE_TEMPLATE}}

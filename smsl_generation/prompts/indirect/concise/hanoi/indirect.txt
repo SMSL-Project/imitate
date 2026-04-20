@@ -1,0 +1,51 @@
+# Concise Hanoi Prompt
+
+You are generating phase `{{CURRENT_PHASE_NUMBER}}` for the Tower of Hanoi puzzle.
+Return exactly one fenced Python block. No JSON, no prose.
+
+## Setup
+
+3 stands: `a`=brown, `b`=blue, `c`=red. 3 disks: 1=gray(small), 2=yellow(medium), 3=green(large).
+
+## Rules
+
+- Move one disk per operation to a different stand.
+- Only the top disk on a stand can move.
+- A larger disk cannot be placed on a smaller disk.
+
+**Top disk definition:** Disk `d` is the top disk on peg `p` only if no disk with a smaller number is also on peg `p`.
+
+## Encoding
+
+States: `State_<d1><d2><d3>` where each is `a|b|c`. All 27 combinations are valid. Initial: `State_aaa`.
+
+The encoding records only which peg each disk is on. It does NOT encode stack order, so phase 2 must keep all 27 states. The top-disk and larger-on-smaller rules belong in phases 3 and 4.
+
+Operations (phases 1–3): `Op_<disk><peg>`. Example: `Op_1a`. This is a compact 2-char suffix. Parse: `disk = name[3]`, `peg = name[4]`. Do NOT use `split("_")`.
+
+Phase 4 repo names: `move_<color>_hanoi_ring_to_the_center_of_<stand_color>_hanoi_stand`.
+Colors: 1→gray, 2→yellow, 3→green. Stands: a→brown, b→blue, c→red.
+
+## Phase roles
+
+- Phase 1: Enumerate all 27 states × 9 operations. No filtering.
+- Phase 2: Keep all 27 states (`state_satisfies_rules` → always True).
+- Phase 3: `operation_is_possible_under_state` must check ALL three:
+  1. Current peg ≠ target peg (source ≠ target)
+  2. Disk is on top of source peg (no smaller-numbered disk on same peg)
+  3. No smaller-numbered disk on target peg (no larger-on-smaller)
+- Phase 4: `apply_operation_under_state` copies state, updates only moved disk's peg.
+  `transition_satisfies_rules` must verify: only the moved disk changed, source≠target, top-disk check, no-larger-on-smaller check.
+  `REPO_OPERATION_NAME_OVERRIDES`: `(State_cbc, Op_2a)` → `move_yellow_hanoi_ring_to_the_center_of_blue_hanoi_stand`.
+
+## Scaffold
+
+Fill the template helpers below. Do not rename or remove them. Each phase script is standalone.
+
+%Reference SMSL JSON shape file%
+
+{{SMSL_TEMPLATE}}
+
+%Phase {{CURRENT_PHASE_NUMBER}} script template file%
+
+{{CURRENT_PHASE_TEMPLATE}}

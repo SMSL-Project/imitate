@@ -1,0 +1,9 @@
+scenario: chess
+mode: direct
+model: gpt-4o
+provider: auto
+temperature: 0.3
+artifact_dir: smsl_generation/output/chess_direct
+out_json: smsl_generation/output/chess_direct.json
+execute_phase_scripts: false
+validation_retries: 5

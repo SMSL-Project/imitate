@@ -1,0 +1,9 @@
+scenario: river_crossing
+mode: direct
+model: gpt-5.4
+temperature: 0.3
+artifact_dir: smsl_generation/output/river_crossing_direct_concise_gpt54
+out_json: smsl_generation/output/river_crossing_direct_concise_gpt54.json
+execute_phase_scripts: false
+validation_retries: 0
+style: concise

@@ -1,0 +1,20 @@
+# Example-Driven Chess Direct Prompt
+
+Generate the complete SMSL JSON for the chess board puzzle.
+
+2 pieces: star, circle. 9 positions: A,B,C,D,a,c,d,0,1. X=impassable.
+Board: A B C D / a X c d / 0 X X 1
+Adjacency: A:[B,a] B:[A,C] C:[B,D,c] D:[C,d] a:[A,0] c:[C,d] d:[D,c,1] 0:[a] 1:[d]
+
+Rules: adjacent moves, stack on same pos, only top (T) moves from stack, arriving piece → T.
+
+States: `State_<star_code><circle_code>`. Code=<pos><layer>. Different→both B, same→one T one B. 90 valid. Initial: `State_0B1B`.
+Operations: `move-<piece>-chess-to-block-<name>`. Uppercase A→uppercase-A, lowercase a→lowercase-a, etc.
+
+Example: State_0B1B (star at 0, circle at 1) has operations:
+- `move-star-chess-to-block-lowercase-a` → `State_aB1B` (0→a is adjacent)
+- `move-circle-chess-to-block-lowercase-d` → `State_0BdB` (1→d is adjacent)
+
+Generate the full JSON with all 90 valid states.
+
+{{SMSL_TEMPLATE}}

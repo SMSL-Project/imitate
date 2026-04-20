@@ -1,0 +1,50 @@
+# Concise River Crossing Prompt
+
+You are generating phase `{{CURRENT_PHASE_NUMBER}}` for the river crossing puzzle.
+Return exactly one fenced Python block. No JSON, no prose.
+
+## Setup
+
+4 entities: grass, sheep, steve, wolf. 3 locations: `0`=red_land, `B`=boat, `1`=green_land.
+
+## Rules
+
+- Adjacent moves only: 0↔B, B↔1. Direct 0↔1 is illegal.
+- Sheep+wolf at same non-boat location without steve → invalid state.
+- Sheep+grass at same non-boat location without steve → invalid state.
+- Boat holds ≤2 entities; if 2, one must be steve.
+
+## Encoding
+
+States: `State_<grass><sheep><steve><wolf>`. Example: `State_0B00`. Initial: `State_0000`.
+
+Operations (phases 1–3): `Op_<entity>_<src>_<tgt>`. Parse: `parts = name.split("_"); entity=parts[1], src=parts[2], tgt=parts[3]`.
+
+Phase 4 repo names: `move_<entity>_from_<src_name>_to_<tgt_name>`. Names: 0→red_land, B→boat, 1→green_land.
+
+## Phase roles
+
+- Phase 1: Enumerate all 81 states (3⁴) × all operations. No filtering.
+- Phase 2: Remove states violating safety/boat rules. 40 survive. Set `NUM_STATES = 40`.
+- Phase 3: `operation_is_possible_under_state` must check ALL of:
+  1. Entity is currently at source location
+  2. Source and target are adjacent (0↔B or B↔1)
+  3. **Steve proximity:** If the entity is NOT steve, steve must be "nearby":
+     - If steve is on `B`: allow any adjacent move
+     - If steve is on `0`: reject if EITHER source or target is `1`
+     - If steve is on `1`: reject if EITHER source or target is `0`
+     A common bug is checking only source OR only target. You must check BOTH.
+- Phase 4: `apply_operation_under_state` changes ONLY the named entity's position. Do NOT move steve or any other entity.
+  `transition_satisfies_rules`: verify only the moved entity changed, then re-check all safety/boat rules on the resulting state.
+
+## Scaffold
+
+Fill the template helpers below. Do not rename or remove them. Each phase script is standalone.
+
+%Reference SMSL JSON shape file%
+
+{{SMSL_TEMPLATE}}
+
+%Phase {{CURRENT_PHASE_NUMBER}} script template file%
+
+{{CURRENT_PHASE_TEMPLATE}}

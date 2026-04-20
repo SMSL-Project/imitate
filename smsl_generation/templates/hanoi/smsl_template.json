@@ -1,0 +1,13 @@
+{
+  "SB1": {
+    "HEADER": {
+      "INITIAL": "State_<disk1_peg><disk2_peg><disk3_peg>",
+      "NUM_FACTS": 3,
+      "NUM_STATES": "<total_number_of_states>",
+      "SUB_SBS": []
+    },
+    "State_<disk1_peg><disk2_peg><disk3_peg>": {
+      "move_<ring_color>_hanoi_ring_to_the_center_of_<stand_color>_hanoi_stand": "State_<next_disk1_peg><next_disk2_peg><next_disk3_peg>"
+    }
+  }
+}

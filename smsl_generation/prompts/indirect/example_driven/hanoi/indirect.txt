@@ -1,0 +1,82 @@
+# Example-Driven Hanoi Prompt
+
+You are generating phase `{{CURRENT_PHASE_NUMBER}}` for the Tower of Hanoi puzzle.
+Return exactly one fenced Python block. No JSON, no prose.
+
+## Puzzle
+
+3 stands: `a`=brown, `b`=blue, `c`=red. 3 disks: 1=gray(small), 2=yellow(med), 3=green(large).
+- Move one disk per operation to a different stand.
+- Only the top disk on a stand can move.
+- A larger disk cannot be placed on a smaller disk.
+
+**Top disk definition:** Disk `d` is on top of peg `p` only if no smaller-numbered disk is also on `p`.
+
+## Encoding
+
+States: `State_<d1><d2><d3>` using `a|b|c`. All 27 are valid (encoding only records peg, not stack order). Initial: `State_aaa`.
+Operations (phases 1–3): `Op_<disk><peg>` — compact 2-char suffix. Parse: `disk = name[3]`, `peg = name[4]`. Do NOT use `split("_")`.
+Phase 4 repo: `move_<color>_hanoi_ring_to_the_center_of_<stand>_hanoi_stand`. Colors: 1→gray, 2→yellow, 3→green. Stands: a→brown, b→blue, c→red.
+`REPO_OPERATION_NAME_OVERRIDES`: `(State_cbc, Op_2a)` → `move_yellow_hanoi_ring_to_the_center_of_blue_hanoi_stand`.
+
+## Phase roles
+
+- Phase 1: Enumerate all 27 states × 9 operations. No filtering.
+- Phase 2: Keep all 27 states (`state_satisfies_rules` → always True).
+- Phase 3: Check ALL three: (1) source≠target, (2) disk is on top, (3) no smaller disk on target.
+- Phase 4: Apply (copy state, update only moved disk), verify only moved disk changed, re-check rules, map to repo names.
+
+## Working example: correct phase 3 from river crossing (adapt pattern)
+
+```python
+def operation_is_possible_under_state(state_code, operation_code):
+    item = operation_code["item"]
+    source_code = operation_code["source"]
+    target_code = operation_code["target"]
+    # check 1: source != target
+    if source_code == target_code:
+        return False
+    # check 2: item is at source
+    if state_code[item] != source_code:
+        return False
+    # check 3+: puzzle-specific constraints
+    # ...
+    return True
+```
+
+For Hanoi phase 3, the checks are:
+1. `current_peg != target_peg`
+2. No smaller-numbered disk on `current_peg` (disk must be on top)
+3. No smaller-numbered disk on `target_peg` (no larger-on-smaller)
+
+Use a loop: `for i in range(disk_index): if state_code[i] == peg: return False`.
+
+## Working example: correct phase 4 from river crossing (adapt pattern)
+
+```python
+def apply_operation_under_state(state_code, operation_code):
+    # Copy state, change ONLY the moved item
+    new_state = dict(state_code)
+    new_state[item] = target
+    return new_state
+
+def transition_satisfies_rules(state_code, operation_code, next_state_code):
+    # Verify only moved item changed
+    changed = [k for k in ITEMS if state_code[k] != next_state_code[k]]
+    if changed != [moved_item]:
+        return False
+    # Re-check all puzzle rules on source state
+    return True
+```
+
+## Scaffold
+
+Fill the template helpers below. Do not rename or remove them. Each phase script is standalone.
+
+%Reference SMSL JSON shape file%
+
+{{SMSL_TEMPLATE}}
+
+%Phase {{CURRENT_PHASE_NUMBER}} script template file%
+
+{{CURRENT_PHASE_TEMPLATE}}

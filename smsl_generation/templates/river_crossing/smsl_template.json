@@ -1,0 +1,13 @@
+{
+  "SB1": {
+    "HEADER": {
+      "INITIAL": "State_<grass_loc><sheep_loc><steve_loc><wolf_loc>",
+      "NUM_FACTS": 4,
+      "NUM_STATES": "<total_number_of_states>",
+      "SUB_SBS": []
+    },
+    "State_<grass_loc><sheep_loc><steve_loc><wolf_loc>": {
+      "move_<entity>_from_<source_location>_to_<target_location>": "State_<next_grass_loc><next_sheep_loc><next_steve_loc><next_wolf_loc>"
+    }
+  }
+}

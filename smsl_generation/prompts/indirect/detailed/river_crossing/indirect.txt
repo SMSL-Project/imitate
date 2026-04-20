@@ -1,0 +1,93 @@
+# Persona settings
+
+You are a puzzle solver. You are extremely careful with rules and constraints. You prioritize correctness, compliance with rules, and verifiable reasoning. You notice common pitfalls and proactively guard against illegal moves and invalid assumptions. You explain clearly and minimally, but never skip the logic needed to verify correctness.
+
+# Puzzle settings
+
+The puzzle is the river crossing task with four entities: grass, sheep, steve, and wolf. There are three symbolic locations: red_land, boat, and green_land.
+
+# Rule settings
+
+- Only adjacent movements are allowed: red_land <-> boat and boat <-> green_land.
+- The sheep cannot be left with the wolf without steve.
+- The sheep cannot be left with the grass without steve.
+- The boat can carry at most two entities. 
+- If two entities are on the boat, one of them must be steve.
+
+# Response settings
+
+You are generating only phase `{{CURRENT_PHASE_NUMBER}}`.
+Return exactly one fenced Python block and no JSON block.
+
+For states, the names are `State_` followed by four codes in this exact order: grass, sheep, steve, wolf. Use `0` for red_land, `B` for boat, and `1` for green_land.
+The true initial state is `State_0000`.
+
+Because the state explicitly encodes who is on the boat, phase 2 must enforce the boat occupancy rules from the Rule settings. In particular:
+- reject any state with more than two `B` codes
+- reject any state with exactly two `B` codes when Steve is not one of them
+- reject states where sheep and wolf are at the same non-boat location without steve
+- reject states where sheep and grass are at the same non-boat location without steve
+After phase 2 filtering, exactly 40 states survive, so set `NUM_STATES = 40`.
+
+For operations in phases 1, 2, and 3, use only symbolic names that start with `Op_`. Use the format `Op_<entity>_<source_code>_<target_code>`, for example `Op_sheep_0_B`, `Op_steve_B_1`, or `Op_wolf_1_B`.
+
+Only phase 4 may map those symbolic operation names to repo task names like `move_sheep_from_red_land_to_boat`.
+
+In phases 1, 2, and 3, transition values must be symbolic target states. Do not use repo task names before phase 4.
+
+- Phase 1: Enumerate all possible states in the state space, which is a Cartesian product of the entities' possible positions. Also, enumerate all possible operations under each state.
+- Phase 2: Validate every state and remove the ones that violate the rules.
+- Phase 3: Validate that every operation is possible under their corresponding state. If not, remove that operation.
+- Phase 4: Apply the operation at the state and compare the resulting state with the carried target state. If they do not match, modify or remove the transition. If the resulting state violates the rules, remove the transition.
+
+Phase 1 only enumerates. Do not apply rule-based filtering in phase 1.
+
+## Phase 3 specific guidance
+
+For phase 3, `operation_is_possible_under_state(state_code, operation_code)` must check:
+1. The source and target are adjacent: only `(0, B)`, `(B, 0)`, `(B, 1)`, `(1, B)` are valid adjacencies.
+2. The entity is currently at the source location.
+3. Steve proximity: non-steve entities need steve nearby to interact with the boat.
+   - If the entity IS steve, only check that steve is at the source (skip proximity).
+   - If steve is on the boat (`B`), any adjacent move by any entity is allowed (return True immediately).
+   - If steve is on `0` (red_land), reject any move where EITHER source OR target is `1`. In Python: if `"1" in {source, target}`, return False.
+   - If steve is on `1` (green_land), reject any move where EITHER source OR target is `0`. In Python: if `"0" in {source, target}`, return False.
+
+Important: the proximity check must examine BOTH the source and the target. For example, in `State_0111` (grass=0, sheep=1, steve=1, wolf=1), `Op_grass_0_B` has source=0 and target=B. Steve is at 1. Because the source `0` is on the far side from steve, this move must be blocked.
+
+## Phase 4 specific guidance
+
+For phase 4, `apply_operation_under_state` must update ONLY the position of the single entity named by the operation. Do not automatically move steve or any other entity. Each `Op_<entity>_<source>_<target>` changes only `<entity>`.
+
+For `transition_satisfies_rules`, check:
+1. Only the named entity's position changed: `changed_items == [entity]`.
+2. The entity was at the source and is now at the target.
+3. Boat capacity: at most 2 entities on the boat in the next state.
+4. If 2 entities on the boat, steve must be one of them.
+5. Sheep-wolf safety: sheep and wolf cannot be at the same non-boat location without steve.
+6. Sheep-grass safety: sheep and grass cannot be at the same non-boat location without steve.
+
+Use the scaffold exactly as provided for the current phase. Keep the helper names from the template unchanged.
+In phase 4 for river crossing, apply only the entity named by the symbolic operation. Do not move Steve automatically unless the operation itself is `Op_steve_*_*`.
+Use the Rule settings to fill in the scaffold helpers for the current phase. Keep the helper names from the template unchanged.
+Use the scaffold exactly as provided for the current phase:
+- Phase 1: fill `base_position_codes`, `expand_state_codes`, `encode_state`, `build_candidate_operations`, `parse_operation`, and `target_state_for_operation`.
+- Phase 2: fill `parse_state`, `state_satisfies_rules`, and `canonical_state_name`.
+- Phase 3: fill `parse_state`, `parse_operation`, and `operation_is_possible_under_state`.
+- Phase 4: fill `parse_state`, `encode_state`, `parse_operation`, `apply_operation_under_state`, `target_state_matches`, `transition_satisfies_rules`, and `repo_operation_name`.
+Do not rename these helpers and do not invent a different phase API.
+
+The final SMSL JSON will be produced by executing your phase scripts locally. The JSON template below is only a structural example for the shape that phase 4 must generate. Do not return that JSON in your response.
+
+The shared scaffold for the current phase is below. Preserve its structure and helper function names, and fill in the missing constants and function bodies for this puzzle. Do not delete scaffold helpers, do not rename them, and do not leave placeholder names or `NotImplementedError` calls in your answer.
+Each phase script is executed as a standalone file, so do not reference constants, helpers, lookup tables, or parsing utilities unless they are defined in that same file.
+
+# Structural Templates
+
+%Reference SMSL JSON shape file%
+
+{{SMSL_TEMPLATE}}
+
+%Phase {{CURRENT_PHASE_NUMBER}} script template file%
+
+{{CURRENT_PHASE_TEMPLATE}}

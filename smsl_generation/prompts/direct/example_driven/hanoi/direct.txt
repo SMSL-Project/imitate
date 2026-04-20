@@ -1,0 +1,18 @@
+# Example-Driven Hanoi Direct Prompt
+
+Generate the complete SMSL JSON for Tower of Hanoi.
+
+3 stands: a=brown, b=blue, c=red. 3 disks: 1=gray(small), 2=yellow(med), 3=green(large).
+Rules: move one disk, only top disk, no larger on smaller.
+
+States: `State_<d1><d2><d3>`. 27 total. Initial: `State_aaa`.
+Operations: `move_<color>_hanoi_ring_to_the_center_of_<stand>_hanoi_stand`.
+
+Example: State_aaa has operations:
+- `move_gray_hanoi_ring_to_the_center_of_blue_hanoi_stand` → `State_baa`
+- `move_gray_hanoi_ring_to_the_center_of_red_hanoi_stand` → `State_caa`
+(Only disk 1 can move from State_aaa because it's on top.)
+
+Generate the full JSON with all 27 states.
+
+{{SMSL_TEMPLATE}}

@@ -1,0 +1,9 @@
+scenario: hanoi
+mode: indirect
+model: gpt-5.4
+temperature: 0.3
+artifact_dir: smsl_generation/output/hanoi_indirect_detailed_gpt54
+out_json: smsl_generation/output/hanoi_indirect_detailed_gpt54.json
+execute_phase_scripts: true
+validation_retries: 0
+style: detailed

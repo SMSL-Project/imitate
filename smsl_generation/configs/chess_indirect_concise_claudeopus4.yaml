@@ -1,0 +1,11 @@
+scenario: chess
+mode: indirect
+model: claude-opus-4-6
+provider: auto
+temperature: 0.3
+verbose: true
+artifact_dir: smsl_generation/output/chess_indirect_concise_claudeopus4
+out_json: smsl_generation/output/chess_indirect_concise_claudeopus4.json
+execute_phase_scripts: true
+validation_retries: 0
+style: concise

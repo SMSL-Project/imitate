@@ -1,0 +1,64 @@
+# Concise Chess Prompt
+
+You are generating phase `{{CURRENT_PHASE_NUMBER}}` for the chess board puzzle.
+Return exactly one fenced Python block. No JSON, no prose.
+
+## Setup
+
+2 pieces: star, circle. 9 valid positions: A,B,C,D,a,c,d,0,1. Board has X=impassable.
+
+```
+A B C D
+a X c d
+0 X X 1
+```
+
+## Rules
+
+- Move between adjacent valid positions only.
+- Pieces can stack on same position.
+- If stacked, only the top piece (layer `T`) can move.
+- Moving onto an occupied position: moved piece becomes top (`T`), other becomes bottom (`B`).
+
+## Adjacency graph
+
+A:[B,a] B:[A,C] C:[B,D,c] D:[C,d] a:[A,0] c:[C,d] d:[D,c,1] 0:[a] 1:[d]
+
+## Encoding
+
+States: `State_<star_code><circle_code>`. Each code = `<position><layer>` where layer is T or B.
+- Different positions → both `B`: e.g. `State_0B1B`
+- Same position → one `T`, one `B`: e.g. `State_ATAB` (star on top at A)
+
+**Important:** Parse `State_XXYY` by slicing: `star_code = payload[:2]`, `circle_code = payload[2:]`. Do NOT use `split("_")` — the state has only one underscore after `State`.
+
+Initial: `State_0B1B`. NUM_STATES = 90.
+
+Operations (phases 1–3): `Op_<piece>_<dest>`. Parse: `_, piece, dest = name.split("_", 2)`.
+
+Phase 4 repo names: `move-<piece>-chess-to-block-<dest_name>`. Names: A→uppercase-A, B→uppercase-B, C→uppercase-C, D→uppercase-D, a→lowercase-a, c→lowercase-c, d→lowercase-d, 0→0, 1→1.
+
+## Phase roles
+
+- Phase 1: Enumerate all valid piece-code pairs × 18 operations. No filtering.
+- Phase 2: Keep only valid states: different positions→both B; same position→one T one B. 90 survive.
+- Phase 3: `operation_is_possible_under_state` must check:
+  1. Piece's current position ≠ target position
+  2. Target is adjacent to piece's current position (use adjacency graph)
+  3. If both pieces share the same position, the piece being moved must be on top (layer T)
+- Phase 4: Apply move. Compute new stacking:
+  - If both pieces end at same position: moved piece→T, other→B
+  - If different positions: both→B
+  Verify resulting state, map to repo names.
+
+## Scaffold
+
+Fill the template helpers below. Do not rename or remove them. Each phase script is standalone.
+
+%Reference SMSL JSON shape file%
+
+{{SMSL_TEMPLATE}}
+
+%Phase {{CURRENT_PHASE_NUMBER}} script template file%
+
+{{CURRENT_PHASE_TEMPLATE}}

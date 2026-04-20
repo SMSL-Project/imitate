@@ -1,0 +1,77 @@
+# Example-Driven River Crossing Prompt
+
+You are generating phase `{{CURRENT_PHASE_NUMBER}}` for the river crossing puzzle.
+Return exactly one fenced Python block. No JSON, no prose.
+
+## Puzzle
+
+4 entities: grass, sheep, steve, wolf. 3 locations: `0`=red_land, `B`=boat, `1`=green_land.
+- Adjacent moves only: 0↔B, B↔1. Direct 0↔1 is illegal.
+- Sheep+wolf at same non-boat location without steve → invalid.
+- Sheep+grass at same non-boat location without steve → invalid.
+- Boat holds ≤2 entities; if 2, one must be steve.
+
+## Encoding
+
+States: `State_<grass><sheep><steve><wolf>`. Initial: `State_0000`.
+Operations (phases 1–3): `Op_<entity>_<src>_<tgt>`. Parse: `parts = name.split("_"); entity=parts[1], src=parts[2], tgt=parts[3]`.
+Phase 4 repo: `move_<entity>_from_<src_name>_to_<tgt_name>`. Names: 0→red_land, B→boat, 1→green_land.
+
+## Phase roles
+
+- Phase 1: Enumerate all 81 states × operations. No filtering.
+- Phase 2: Remove states violating rules. 40 survive. `NUM_STATES = 40`.
+- Phase 3: Check: entity at source, adjacent move, steve proximity. If steve on B: allow. If steve on 0: reject if `"1" in {source, target}`. If steve on 1: reject if `"0" in {source, target}`. Check BOTH source AND target.
+- Phase 4: Change ONLY named entity's position. Check all rules. Map to repo names.
+
+## Working example: correct phase 3 from Hanoi (adapt pattern)
+
+```python
+# Hanoi phase 3 — adapt the CHECK pattern for river crossing
+def operation_is_possible_under_state(state_code, operation_code):
+    disk, target_peg = operation_code
+    disk_index = int(disk) - 1
+    current_peg = state_code[disk_index]
+    # Check 1: source != target
+    if current_peg == target_peg:
+        return False
+    # Check 2: disk is on top (no smaller disk on same peg)
+    for i in range(disk_index):
+        if state_code[i] == current_peg:
+            return False
+    # Check 3: no smaller disk on target
+    for i in range(disk_index):
+        if state_code[i] == target_peg:
+            return False
+    return True
+```
+
+For river crossing, adapt:
+- Check 1: entity is at source location
+- Check 2: source and target are adjacent (0↔B or B↔1)
+- Check 3: steve proximity (if entity is steve, skip; otherwise check steve's position)
+
+## Working example: correct phase 4 apply (adapt for river crossing)
+
+```python
+# Hanoi apply — adapt for river crossing (change ONLY the moved entity)
+def apply_operation_under_state(state_code, operation_code):
+    disk, target_peg = operation_code
+    new_state = list(state_code)
+    new_state[int(disk) - 1] = target_peg
+    return ''.join(new_state)
+```
+
+For river crossing: copy the dict, update ONLY `entity`'s position. Do NOT move steve or anyone else.
+
+## Scaffold
+
+Fill the template helpers below. Do not rename or remove them. Each phase script is standalone.
+
+%Reference SMSL JSON shape file%
+
+{{SMSL_TEMPLATE}}
+
+%Phase {{CURRENT_PHASE_NUMBER}} script template file%
+
+{{CURRENT_PHASE_TEMPLATE}}

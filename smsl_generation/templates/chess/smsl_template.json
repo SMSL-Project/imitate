@@ -1,0 +1,13 @@
+{
+  "SB1": {
+    "HEADER": {
+      "INITIAL": "State_<star_code><circle_code>",
+      "NUM_FACTS": 2,
+      "NUM_STATES": "<total_number_of_states>",
+      "SUB_SBS": []
+    },
+    "State_<star_code><circle_code>": {
+      "move-<piece>-chess-to-block-<target_block_name>": "State_<next_star_code><next_circle_code>"
+    }
+  }
+}
