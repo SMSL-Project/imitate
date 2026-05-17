@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<robot name="custom_chess_board">
+  <link name="base_link">
+    <inertial>
+      <mass value="1.0"/>
+      <inertia ixx="0.166667" ixy="0.0" ixz="0.0" iyy="0.166667" iyz="0.0" izz="0.166667"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="1.5708 0 0"/>
+      <geometry><mesh filename="board.obj" scale="1 1 1"/></geometry>
+      <material name="board_material"><color rgba="0.8 0.8 0.8 1"/></material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0.01" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.4 0.3 0.02"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <!-- Row 1 -->
+  <link name="0"><inertial><mass value="0.1"/><inertia ixx="0.01" ixy="0.0" ixz="0.0" iyy="0.01" iyz="0.0" izz="0.01"/></inertial></link>
+  <joint name="slot_0_joint" type="fixed"><parent link="base_link"/><child link="0"/><origin xyz="-0.150 -0.100 0.020" rpy="0 0 0"/></joint>
+
+  <link name="1"><inertial><mass value="0.1"/><inertia ixx="0.01" ixy="0.0" ixz="0.0" iyy="0.01" iyz="0.0" izz="0.01"/></inertial></link>
+  <joint name="slot_1_joint" type="fixed"><parent link="base_link"/><child link="1"/><origin xyz="0.150 -0.100 0.020" rpy="0 0 0"/></joint>
+
+  <!-- Row 2: Slots for Block a, b, c, d -->
+  <link name="a"><inertial><mass value="0.1"/><inertia ixx="0.01" ixy="0.0" ixz="0.0" iyy="0.01" iyz="0.0" izz="0.01"/></inertial></link>
+  <joint name="slot_a_joint" type="fixed"><parent link="base_link"/><child link="a"/><origin xyz="-0.150 0.000 0.020" rpy="0 0 0"/></joint>
+
+  <link name="b"><inertial><mass value="0.1"/><inertia ixx="0.01" ixy="0.0" ixz="0.0" iyy="0.01" iyz="0.0" izz="0.01"/></inertial></link>
+  <joint name="slot_b_joint" type="fixed"><parent link="base_link"/><child link="b"/><origin xyz="-0.050 0.000 0.020" rpy="0 0 0"/></joint>
+
+  <link name="c"><inertial><mass value="0.1"/><inertia ixx="0.01" ixy="0.0" ixz="0.0" iyy="0.01" iyz="0.0" izz="0.01"/></inertial></link>
+  <joint name="slot_c_joint" type="fixed"><parent link="base_link"/><child link="c"/><origin xyz="0.050 0.000 0.020" rpy="0 0 0"/></joint>
+
+  <link name="d"><inertial><mass value="0.1"/><inertia ixx="0.01" ixy="0.0" ixz="0.0" iyy="0.01" iyz="0.0" izz="0.01"/></inertial></link>
+  <joint name="slot_d_joint" type="fixed"><parent link="base_link"/><child link="d"/><origin xyz="0.150 0.000 0.020" rpy="0 0 0"/></joint>
+
+  <!-- Row 3: Slots for Block A, B, C, D -->
+  <link name="A"><inertial><mass value="0.1"/><inertia ixx="0.01" ixy="0.0" ixz="0.0" iyy="0.01" iyz="0.0" izz="0.01"/></inertial></link>
+  <joint name="slot_A_joint" type="fixed"><parent link="base_link"/><child link="A"/><origin xyz="-0.150 0.100 0.020" rpy="0 0 0"/></joint>
+
+  <link name="B"><inertial><mass value="0.1"/><inertia ixx="0.01" ixy="0.0" ixz="0.0" iyy="0.01" iyz="0.0" izz="0.01"/></inertial></link>
+  <joint name="slot_B_joint" type="fixed"><parent link="base_link"/><child link="B"/><origin xyz="-0.050 0.100 0.020" rpy="0 0 0"/></joint>
+
+  <link name="C"><inertial><mass value="0.1"/><inertia ixx="0.01" ixy="0.0" ixz="0.0" iyy="0.01" iyz="0.0" izz="0.01"/></inertial></link>
+  <joint name="slot_C_joint" type="fixed"><parent link="base_link"/><child link="C"/><origin xyz="0.050 0.100 0.020" rpy="0 0 0"/></joint>
+
+  <link name="D"><inertial><mass value="0.1"/><inertia ixx="0.01" ixy="0.0" ixz="0.0" iyy="0.01" iyz="0.0" izz="0.01"/></inertial></link>
+  <joint name="slot_D_joint" type="fixed"><parent link="base_link"/><child link="D"/><origin xyz="0.150 0.100 0.020" rpy="0 0 0"/></joint>
+</robot>

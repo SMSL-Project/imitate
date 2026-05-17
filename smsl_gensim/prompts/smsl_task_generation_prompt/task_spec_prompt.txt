@@ -1,0 +1,28 @@
+Design one SMSL CLIPort primitive task specification.
+
+Scenario: {scenario}
+Task name: {task_name}
+
+The scene initializer below shows which assets exist and how object IDs are stored.
+Choose URDFs only from this initializer.
+Put picked or movable assets in "urdf-to-use-rigid".
+Put fixed target or support assets in "urdf-to-use-fixed".
+Add a URDF to "urdf-to-inspect" only when the target pose is not simply the target object's center or spawn pose.
+For chess, do not inspect board slot joints; the code prompt supplies the fixed board target offsets and piece height.
+For chess, put chess/board.urdf in "urdf-to-use-fixed" and the moved chess piece asset in "urdf-to-use-rigid".
+For river_crossing, do not inspect slot joints; the code prompt supplies the permutable destination slot offsets.
+For river_crossing, put only the destination land/boat asset in "urdf-to-use-fixed" and the moved entity asset in "urdf-to-use-rigid".
+
+Scene initializer:
+```python
+{scene_initializer}
+```
+
+Return only JSON with these keys:
+{
+    "task-name": "{task_name}",
+    "task-description": "<one clear sentence>",
+    "urdf-to-use-fixed": [],
+    "urdf-to-use-rigid": [],
+    "urdf-to-inspect": []
+}

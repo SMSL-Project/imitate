@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<robot name="boat_with_passenger_slots">
+    <link name="base_link">
+        <inertial>
+            <mass value="1.0"/>
+            <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+        </inertial>
+        <visual>
+            <origin rpy="1.5708 0 0"/>
+            <geometry><mesh filename="boat.obj" scale="0.13 0.08 0.13"/></geometry>
+        </visual>
+        <collision>
+            <origin rpy="1.5708 0 0"/>
+            <geometry><mesh filename="boat.obj" scale="0.13 0.08 0.13"/></geometry>
+        </collision>
+    </link>
+
+    <!-- Passenger/Item Slots -->
+    <link name="wolf_slot"><inertial><mass value="0.001"/><inertia ixx="0.001" ixy="0.0" ixz="0.0" iyy="0.001" iyz="0.0" izz="0.001"/></inertial></link>
+    <link name="sheep_slot"><inertial><mass value="0.001"/><inertia ixx="0.001" ixy="0.0" ixz="0.0" iyy="0.001" iyz="0.0" izz="0.001"/></inertial></link>
+    <link name="steve_slot"><inertial><mass value="0.001"/><inertia ixx="0.001" ixy="0.0" ixz="0.0" iyy="0.001" iyz="0.0" izz="0.001"/></inertial></link>
+    <link name="grass_slot"><inertial><mass value="0.001"/><inertia ixx="0.001" ixy="0.0" ixz="0.0" iyy="0.001" iyz="0.0" izz="0.001"/></inertial></link>
+
+    <!-- Slot Joints -->
+    <joint name="wolf_slot_joint" type="fixed"><parent link="base_link"/><child link="wolf_slot"/><origin xyz="0.02 -0.02 0.02"/></joint>
+    <joint name="sheep_slot_joint" type="fixed"><parent link="base_link"/><child link="sheep_slot"/><origin xyz="-0.02 0.02 0.02"/></joint>
+    <joint name="steve_slot_joint" type="fixed"><parent link="base_link"/><child link="steve_slot"/><origin xyz="-0.02 -0.02 0.02"/></joint>
+    <joint name="grass_slot_joint" type="fixed"><parent link="base_link"/><child link="grass_slot"/><origin xyz="0.02 0.02 0.02"/></joint>
+</robot>

@@ -1,0 +1,23 @@
+# Runtime outputs
+/data/
+/exps/
+/evals/
+/outputs/
+/results/
+/lightning_logs/
+/wandb/
+/checkpoints/
+/videos/
+*.ckpt
+*.log
+
+# Local files
+.env
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.DS_Store

@@ -155,3 +155,17 @@ style: detailed
 | `openai`  | `openai`       | `OPENAI_API_KEY`   | `gpt-4o`, `gpt-4o-mini`, `o3`, `o4-mini`             |
 | `gemini`  | `google-genai` | `GEMINI_API_KEY`   | `gemini-3.1-pro-preview`, `gemini-3-flash-preview`    |
 | `claude`  | `anthropic`    | `ANTHROPIC_API_KEY`| `claude-opus-4-6`, `claude-haiku-4-5-20251001`        |
+
+## Citation
+
+If you find this work useful, please consider citing:
+
+```bibtex
+@inproceedings{mu2025look,
+  title={Look before you leap: Using serialized state machine for language conditioned robotic manipulation},
+  author={Mu, Tong and Liu, Yihao and Armand, Mehran},
+  booktitle={2025 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)},
+  pages={8096--8102},
+  year={2025},
+  organization={IEEE}
+}

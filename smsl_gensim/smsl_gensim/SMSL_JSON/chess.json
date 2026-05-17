@@ -1,0 +1,514 @@
+{
+  "SB1": {
+    "HEADER": {
+      "INITIAL": "State_0B1B",
+      "NUM_FACTS": 2,
+      "NUM_STATES": 90,
+      "SUB_SBS": []
+    },
+    "State_ATAB": {
+      "move-star-chess-to-block-uppercase-B": "State_BBAB",
+      "move-star-chess-to-block-lowercase-a": "State_aBAB"
+    },
+    "State_ABAT": {
+      "move-circle-chess-to-block-uppercase-B": "State_ABBB",
+      "move-circle-chess-to-block-lowercase-a": "State_ABaB"
+    },
+    "State_ABBB": {
+      "move-star-chess-to-block-uppercase-B": "State_BTBB",
+      "move-star-chess-to-block-lowercase-a": "State_aBBB",
+      "move-circle-chess-to-block-uppercase-A": "State_ABAT",
+      "move-circle-chess-to-block-uppercase-C": "State_ABCB"
+    },
+    "State_ABCB": {
+      "move-star-chess-to-block-uppercase-B": "State_BBCB",
+      "move-star-chess-to-block-lowercase-a": "State_aBCB",
+      "move-circle-chess-to-block-uppercase-B": "State_ABBB",
+      "move-circle-chess-to-block-uppercase-D": "State_ABDB",
+      "move-circle-chess-to-block-lowercase-c": "State_ABcB"
+    },
+    "State_ABDB": {
+      "move-star-chess-to-block-uppercase-B": "State_BBDB",
+      "move-star-chess-to-block-lowercase-a": "State_aBDB",
+      "move-circle-chess-to-block-uppercase-C": "State_ABCB",
+      "move-circle-chess-to-block-lowercase-d": "State_ABdB"
+    },
+    "State_ABaB": {
+      "move-star-chess-to-block-uppercase-B": "State_BBaB",
+      "move-star-chess-to-block-lowercase-a": "State_aTaB",
+      "move-circle-chess-to-block-uppercase-A": "State_ABAT",
+      "move-circle-chess-to-block-0": "State_AB0B"
+    },
+    "State_ABcB": {
+      "move-star-chess-to-block-uppercase-B": "State_BBcB",
+      "move-star-chess-to-block-lowercase-a": "State_aBcB",
+      "move-circle-chess-to-block-uppercase-C": "State_ABCB",
+      "move-circle-chess-to-block-lowercase-d": "State_ABdB"
+    },
+    "State_ABdB": {
+      "move-star-chess-to-block-uppercase-B": "State_BBdB",
+      "move-star-chess-to-block-lowercase-a": "State_aBdB",
+      "move-circle-chess-to-block-uppercase-D": "State_ABDB",
+      "move-circle-chess-to-block-lowercase-c": "State_ABcB",
+      "move-circle-chess-to-block-1": "State_AB1B"
+    },
+    "State_AB0B": {
+      "move-star-chess-to-block-uppercase-B": "State_BB0B",
+      "move-star-chess-to-block-lowercase-a": "State_aB0B",
+      "move-circle-chess-to-block-lowercase-a": "State_ABaB"
+    },
+    "State_AB1B": {
+      "move-star-chess-to-block-uppercase-B": "State_BB1B",
+      "move-star-chess-to-block-lowercase-a": "State_aB1B",
+      "move-circle-chess-to-block-lowercase-d": "State_ABdB"
+    },
+    "State_BTBB": {
+      "move-star-chess-to-block-uppercase-A": "State_ABBB",
+      "move-star-chess-to-block-uppercase-C": "State_CBBB"
+    },
+    "State_BBAB": {
+      "move-star-chess-to-block-uppercase-A": "State_ATAB",
+      "move-star-chess-to-block-uppercase-C": "State_CBAB",
+      "move-circle-chess-to-block-uppercase-B": "State_BBBT",
+      "move-circle-chess-to-block-lowercase-a": "State_BBaB"
+    },
+    "State_BBBT": {
+      "move-circle-chess-to-block-uppercase-A": "State_BBAB",
+      "move-circle-chess-to-block-uppercase-C": "State_BBCB"
+    },
+    "State_BBCB": {
+      "move-star-chess-to-block-uppercase-A": "State_ABCB",
+      "move-star-chess-to-block-uppercase-C": "State_CTCB",
+      "move-circle-chess-to-block-uppercase-B": "State_BBBT",
+      "move-circle-chess-to-block-uppercase-D": "State_BBDB",
+      "move-circle-chess-to-block-lowercase-c": "State_BBcB"
+    },
+    "State_BBDB": {
+      "move-star-chess-to-block-uppercase-A": "State_ABDB",
+      "move-star-chess-to-block-uppercase-C": "State_CBDB",
+      "move-circle-chess-to-block-uppercase-C": "State_BBCB",
+      "move-circle-chess-to-block-lowercase-d": "State_BBdB"
+    },
+    "State_BBaB": {
+      "move-star-chess-to-block-uppercase-A": "State_ABaB",
+      "move-star-chess-to-block-uppercase-C": "State_CBaB",
+      "move-circle-chess-to-block-uppercase-A": "State_BBAB",
+      "move-circle-chess-to-block-0": "State_BB0B"
+    },
+    "State_BBcB": {
+      "move-star-chess-to-block-uppercase-A": "State_ABcB",
+      "move-star-chess-to-block-uppercase-C": "State_CBcB",
+      "move-circle-chess-to-block-uppercase-C": "State_BBCB",
+      "move-circle-chess-to-block-lowercase-d": "State_BBdB"
+    },
+    "State_BBdB": {
+      "move-star-chess-to-block-uppercase-A": "State_ABdB",
+      "move-star-chess-to-block-uppercase-C": "State_CBdB",
+      "move-circle-chess-to-block-uppercase-D": "State_BBDB",
+      "move-circle-chess-to-block-lowercase-c": "State_BBcB",
+      "move-circle-chess-to-block-1": "State_BB1B"
+    },
+    "State_BB0B": {
+      "move-star-chess-to-block-uppercase-A": "State_AB0B",
+      "move-star-chess-to-block-uppercase-C": "State_CB0B",
+      "move-circle-chess-to-block-lowercase-a": "State_BBaB"
+    },
+    "State_BB1B": {
+      "move-star-chess-to-block-uppercase-A": "State_AB1B",
+      "move-star-chess-to-block-uppercase-C": "State_CB1B",
+      "move-circle-chess-to-block-lowercase-d": "State_BBdB"
+    },
+    "State_CTCB": {
+      "move-star-chess-to-block-uppercase-B": "State_BBCB",
+      "move-star-chess-to-block-uppercase-D": "State_DBCB",
+      "move-star-chess-to-block-lowercase-c": "State_cBCB"
+    },
+    "State_CBAB": {
+      "move-star-chess-to-block-uppercase-B": "State_BBAB",
+      "move-star-chess-to-block-uppercase-D": "State_DBAB",
+      "move-star-chess-to-block-lowercase-c": "State_cBAB",
+      "move-circle-chess-to-block-uppercase-B": "State_CBBB",
+      "move-circle-chess-to-block-lowercase-a": "State_CBaB"
+    },
+    "State_CBBB": {
+      "move-star-chess-to-block-uppercase-B": "State_BTBB",
+      "move-star-chess-to-block-uppercase-D": "State_DBBB",
+      "move-star-chess-to-block-lowercase-c": "State_cBBB",
+      "move-circle-chess-to-block-uppercase-A": "State_CBAB",
+      "move-circle-chess-to-block-uppercase-C": "State_CBCT"
+    },
+    "State_CBCT": {
+      "move-circle-chess-to-block-uppercase-B": "State_CBBB",
+      "move-circle-chess-to-block-uppercase-D": "State_CBDB",
+      "move-circle-chess-to-block-lowercase-c": "State_CBcB"
+    },
+    "State_CBDB": {
+      "move-star-chess-to-block-uppercase-B": "State_BBDB",
+      "move-star-chess-to-block-uppercase-D": "State_DTDB",
+      "move-star-chess-to-block-lowercase-c": "State_cBDB",
+      "move-circle-chess-to-block-uppercase-C": "State_CBCT",
+      "move-circle-chess-to-block-lowercase-d": "State_CBdB"
+    },
+    "State_CBaB": {
+      "move-star-chess-to-block-uppercase-B": "State_BBaB",
+      "move-star-chess-to-block-uppercase-D": "State_DBaB",
+      "move-star-chess-to-block-lowercase-c": "State_cBaB",
+      "move-circle-chess-to-block-uppercase-A": "State_CBAB",
+      "move-circle-chess-to-block-0": "State_CB0B"
+    },
+    "State_CBcB": {
+      "move-star-chess-to-block-uppercase-B": "State_BBcB",
+      "move-star-chess-to-block-uppercase-D": "State_DBcB",
+      "move-star-chess-to-block-lowercase-c": "State_cTcB",
+      "move-circle-chess-to-block-uppercase-C": "State_CBCT",
+      "move-circle-chess-to-block-lowercase-d": "State_CBdB"
+    },
+    "State_CBdB": {
+      "move-star-chess-to-block-uppercase-B": "State_BBdB",
+      "move-star-chess-to-block-uppercase-D": "State_DBdB",
+      "move-star-chess-to-block-lowercase-c": "State_cBdB",
+      "move-circle-chess-to-block-uppercase-D": "State_CBDB",
+      "move-circle-chess-to-block-lowercase-c": "State_CBcB",
+      "move-circle-chess-to-block-1": "State_CB1B"
+    },
+    "State_CB0B": {
+      "move-star-chess-to-block-uppercase-B": "State_BB0B",
+      "move-star-chess-to-block-uppercase-D": "State_DB0B",
+      "move-star-chess-to-block-lowercase-c": "State_cB0B",
+      "move-circle-chess-to-block-lowercase-a": "State_CBaB"
+    },
+    "State_CB1B": {
+      "move-star-chess-to-block-uppercase-B": "State_BB1B",
+      "move-star-chess-to-block-uppercase-D": "State_DB1B",
+      "move-star-chess-to-block-lowercase-c": "State_cB1B",
+      "move-circle-chess-to-block-lowercase-d": "State_CBdB"
+    },
+    "State_DTDB": {
+      "move-star-chess-to-block-uppercase-C": "State_CBDB",
+      "move-star-chess-to-block-lowercase-d": "State_dBDB"
+    },
+    "State_DBAB": {
+      "move-star-chess-to-block-uppercase-C": "State_CBAB",
+      "move-star-chess-to-block-lowercase-d": "State_dBAB",
+      "move-circle-chess-to-block-uppercase-B": "State_DBBB",
+      "move-circle-chess-to-block-lowercase-a": "State_DBaB"
+    },
+    "State_DBBB": {
+      "move-star-chess-to-block-uppercase-C": "State_CBBB",
+      "move-star-chess-to-block-lowercase-d": "State_dBBB",
+      "move-circle-chess-to-block-uppercase-A": "State_DBAB",
+      "move-circle-chess-to-block-uppercase-C": "State_DBCB"
+    },
+    "State_DBCB": {
+      "move-star-chess-to-block-uppercase-C": "State_CTCB",
+      "move-star-chess-to-block-lowercase-d": "State_dBCB",
+      "move-circle-chess-to-block-uppercase-B": "State_DBBB",
+      "move-circle-chess-to-block-uppercase-D": "State_DBDT",
+      "move-circle-chess-to-block-lowercase-c": "State_DBcB"
+    },
+    "State_DBDT": {
+      "move-circle-chess-to-block-uppercase-C": "State_DBCB",
+      "move-circle-chess-to-block-lowercase-d": "State_DBdB"
+    },
+    "State_DBaB": {
+      "move-star-chess-to-block-uppercase-C": "State_CBaB",
+      "move-star-chess-to-block-lowercase-d": "State_dBaB",
+      "move-circle-chess-to-block-uppercase-A": "State_DBAB",
+      "move-circle-chess-to-block-0": "State_DB0B"
+    },
+    "State_DBcB": {
+      "move-star-chess-to-block-uppercase-C": "State_CBcB",
+      "move-star-chess-to-block-lowercase-d": "State_dBcB",
+      "move-circle-chess-to-block-uppercase-C": "State_DBCB",
+      "move-circle-chess-to-block-lowercase-d": "State_DBdB"
+    },
+    "State_DBdB": {
+      "move-star-chess-to-block-uppercase-C": "State_CBdB",
+      "move-star-chess-to-block-lowercase-d": "State_dTdB",
+      "move-circle-chess-to-block-uppercase-D": "State_DBDT",
+      "move-circle-chess-to-block-lowercase-c": "State_DBcB",
+      "move-circle-chess-to-block-1": "State_DB1B"
+    },
+    "State_DB0B": {
+      "move-star-chess-to-block-uppercase-C": "State_CB0B",
+      "move-star-chess-to-block-lowercase-d": "State_dB0B",
+      "move-circle-chess-to-block-lowercase-a": "State_DBaB"
+    },
+    "State_DB1B": {
+      "move-star-chess-to-block-uppercase-C": "State_CB1B",
+      "move-star-chess-to-block-lowercase-d": "State_dB1B",
+      "move-circle-chess-to-block-lowercase-d": "State_DBdB"
+    },
+    "State_aTaB": {
+      "move-star-chess-to-block-uppercase-A": "State_ABaB",
+      "move-star-chess-to-block-0": "State_0BaB"
+    },
+    "State_aBAB": {
+      "move-star-chess-to-block-uppercase-A": "State_ATAB",
+      "move-star-chess-to-block-0": "State_0BAB",
+      "move-circle-chess-to-block-uppercase-B": "State_aBBB",
+      "move-circle-chess-to-block-lowercase-a": "State_aBaT"
+    },
+    "State_aBBB": {
+      "move-star-chess-to-block-uppercase-A": "State_ABBB",
+      "move-star-chess-to-block-0": "State_0BBB",
+      "move-circle-chess-to-block-uppercase-A": "State_aBAB",
+      "move-circle-chess-to-block-uppercase-C": "State_aBCB"
+    },
+    "State_aBCB": {
+      "move-star-chess-to-block-uppercase-A": "State_ABCB",
+      "move-star-chess-to-block-0": "State_0BCB",
+      "move-circle-chess-to-block-uppercase-B": "State_aBBB",
+      "move-circle-chess-to-block-uppercase-D": "State_aBDB",
+      "move-circle-chess-to-block-lowercase-c": "State_aBcB"
+    },
+    "State_aBDB": {
+      "move-star-chess-to-block-uppercase-A": "State_ABDB",
+      "move-star-chess-to-block-0": "State_0BDB",
+      "move-circle-chess-to-block-uppercase-C": "State_aBCB",
+      "move-circle-chess-to-block-lowercase-d": "State_aBdB"
+    },
+    "State_aBaT": {
+      "move-circle-chess-to-block-uppercase-A": "State_aBAB",
+      "move-circle-chess-to-block-0": "State_aB0B"
+    },
+    "State_aBcB": {
+      "move-star-chess-to-block-uppercase-A": "State_ABcB",
+      "move-star-chess-to-block-0": "State_0BcB",
+      "move-circle-chess-to-block-uppercase-C": "State_aBCB",
+      "move-circle-chess-to-block-lowercase-d": "State_aBdB"
+    },
+    "State_aBdB": {
+      "move-star-chess-to-block-uppercase-A": "State_ABdB",
+      "move-star-chess-to-block-0": "State_0BdB",
+      "move-circle-chess-to-block-uppercase-D": "State_aBDB",
+      "move-circle-chess-to-block-lowercase-c": "State_aBcB",
+      "move-circle-chess-to-block-1": "State_aB1B"
+    },
+    "State_aB0B": {
+      "move-star-chess-to-block-uppercase-A": "State_AB0B",
+      "move-star-chess-to-block-0": "State_0T0B",
+      "move-circle-chess-to-block-lowercase-a": "State_aBaT"
+    },
+    "State_aB1B": {
+      "move-star-chess-to-block-uppercase-A": "State_AB1B",
+      "move-star-chess-to-block-0": "State_0B1B",
+      "move-circle-chess-to-block-lowercase-d": "State_aBdB"
+    },
+    "State_cTcB": {
+      "move-star-chess-to-block-uppercase-C": "State_CBcB",
+      "move-star-chess-to-block-lowercase-d": "State_dBcB"
+    },
+    "State_cBAB": {
+      "move-star-chess-to-block-uppercase-C": "State_CBAB",
+      "move-star-chess-to-block-lowercase-d": "State_dBAB",
+      "move-circle-chess-to-block-uppercase-B": "State_cBBB",
+      "move-circle-chess-to-block-lowercase-a": "State_cBaB"
+    },
+    "State_cBBB": {
+      "move-star-chess-to-block-uppercase-C": "State_CBBB",
+      "move-star-chess-to-block-lowercase-d": "State_dBBB",
+      "move-circle-chess-to-block-uppercase-A": "State_cBAB",
+      "move-circle-chess-to-block-uppercase-C": "State_cBCB"
+    },
+    "State_cBCB": {
+      "move-star-chess-to-block-uppercase-C": "State_CTCB",
+      "move-star-chess-to-block-lowercase-d": "State_dBCB",
+      "move-circle-chess-to-block-uppercase-B": "State_cBBB",
+      "move-circle-chess-to-block-uppercase-D": "State_cBDB",
+      "move-circle-chess-to-block-lowercase-c": "State_cBcT"
+    },
+    "State_cBDB": {
+      "move-star-chess-to-block-uppercase-C": "State_CBDB",
+      "move-star-chess-to-block-lowercase-d": "State_dBDB",
+      "move-circle-chess-to-block-uppercase-C": "State_cBCB",
+      "move-circle-chess-to-block-lowercase-d": "State_cBdB"
+    },
+    "State_cBaB": {
+      "move-star-chess-to-block-uppercase-C": "State_CBaB",
+      "move-star-chess-to-block-lowercase-d": "State_dBaB",
+      "move-circle-chess-to-block-uppercase-A": "State_cBAB",
+      "move-circle-chess-to-block-0": "State_cB0B"
+    },
+    "State_cBcT": {
+      "move-circle-chess-to-block-uppercase-C": "State_cBCB",
+      "move-circle-chess-to-block-lowercase-d": "State_cBdB"
+    },
+    "State_cBdB": {
+      "move-star-chess-to-block-uppercase-C": "State_CBdB",
+      "move-star-chess-to-block-lowercase-d": "State_dTdB",
+      "move-circle-chess-to-block-uppercase-D": "State_cBDB",
+      "move-circle-chess-to-block-lowercase-c": "State_cBcT",
+      "move-circle-chess-to-block-1": "State_cB1B"
+    },
+    "State_cB0B": {
+      "move-star-chess-to-block-uppercase-C": "State_CB0B",
+      "move-star-chess-to-block-lowercase-d": "State_dB0B",
+      "move-circle-chess-to-block-lowercase-a": "State_cBaB"
+    },
+    "State_cB1B": {
+      "move-star-chess-to-block-uppercase-C": "State_CB1B",
+      "move-star-chess-to-block-lowercase-d": "State_dB1B",
+      "move-circle-chess-to-block-lowercase-d": "State_cBdB"
+    },
+    "State_dTdB": {
+      "move-star-chess-to-block-uppercase-D": "State_DBdB",
+      "move-star-chess-to-block-lowercase-c": "State_cBdB",
+      "move-star-chess-to-block-1": "State_1BdB"
+    },
+    "State_dBAB": {
+      "move-star-chess-to-block-uppercase-D": "State_DBAB",
+      "move-star-chess-to-block-lowercase-c": "State_cBAB",
+      "move-star-chess-to-block-1": "State_1BAB",
+      "move-circle-chess-to-block-uppercase-B": "State_dBBB",
+      "move-circle-chess-to-block-lowercase-a": "State_dBaB"
+    },
+    "State_dBBB": {
+      "move-star-chess-to-block-uppercase-D": "State_DBBB",
+      "move-star-chess-to-block-lowercase-c": "State_cBBB",
+      "move-star-chess-to-block-1": "State_1BBB",
+      "move-circle-chess-to-block-uppercase-A": "State_dBAB",
+      "move-circle-chess-to-block-uppercase-C": "State_dBCB"
+    },
+    "State_dBCB": {
+      "move-star-chess-to-block-uppercase-D": "State_DBCB",
+      "move-star-chess-to-block-lowercase-c": "State_cBCB",
+      "move-star-chess-to-block-1": "State_1BCB",
+      "move-circle-chess-to-block-uppercase-B": "State_dBBB",
+      "move-circle-chess-to-block-uppercase-D": "State_dBDB",
+      "move-circle-chess-to-block-lowercase-c": "State_dBcB"
+    },
+    "State_dBDB": {
+      "move-star-chess-to-block-uppercase-D": "State_DTDB",
+      "move-star-chess-to-block-lowercase-c": "State_cBDB",
+      "move-star-chess-to-block-1": "State_1BDB",
+      "move-circle-chess-to-block-uppercase-C": "State_dBCB",
+      "move-circle-chess-to-block-lowercase-d": "State_dBdT"
+    },
+    "State_dBaB": {
+      "move-star-chess-to-block-uppercase-D": "State_DBaB",
+      "move-star-chess-to-block-lowercase-c": "State_cBaB",
+      "move-star-chess-to-block-1": "State_1BaB",
+      "move-circle-chess-to-block-uppercase-A": "State_dBAB",
+      "move-circle-chess-to-block-0": "State_dB0B"
+    },
+    "State_dBcB": {
+      "move-star-chess-to-block-uppercase-D": "State_DBcB",
+      "move-star-chess-to-block-lowercase-c": "State_cTcB",
+      "move-star-chess-to-block-1": "State_1BcB",
+      "move-circle-chess-to-block-uppercase-C": "State_dBCB",
+      "move-circle-chess-to-block-lowercase-d": "State_dBdT"
+    },
+    "State_dBdT": {
+      "move-circle-chess-to-block-uppercase-D": "State_dBDB",
+      "move-circle-chess-to-block-lowercase-c": "State_dBcB",
+      "move-circle-chess-to-block-1": "State_dB1B"
+    },
+    "State_dB0B": {
+      "move-star-chess-to-block-uppercase-D": "State_DB0B",
+      "move-star-chess-to-block-lowercase-c": "State_cB0B",
+      "move-star-chess-to-block-1": "State_1B0B",
+      "move-circle-chess-to-block-lowercase-a": "State_dBaB"
+    },
+    "State_dB1B": {
+      "move-star-chess-to-block-uppercase-D": "State_DB1B",
+      "move-star-chess-to-block-lowercase-c": "State_cB1B",
+      "move-star-chess-to-block-1": "State_1T1B",
+      "move-circle-chess-to-block-lowercase-d": "State_dBdT"
+    },
+    "State_0T0B": {
+      "move-star-chess-to-block-lowercase-a": "State_aB0B"
+    },
+    "State_0BAB": {
+      "move-star-chess-to-block-lowercase-a": "State_aBAB",
+      "move-circle-chess-to-block-uppercase-B": "State_0BBB",
+      "move-circle-chess-to-block-lowercase-a": "State_0BaB"
+    },
+    "State_0BBB": {
+      "move-star-chess-to-block-lowercase-a": "State_aBBB",
+      "move-circle-chess-to-block-uppercase-A": "State_0BAB",
+      "move-circle-chess-to-block-uppercase-C": "State_0BCB"
+    },
+    "State_0BCB": {
+      "move-star-chess-to-block-lowercase-a": "State_aBCB",
+      "move-circle-chess-to-block-uppercase-B": "State_0BBB",
+      "move-circle-chess-to-block-uppercase-D": "State_0BDB",
+      "move-circle-chess-to-block-lowercase-c": "State_0BcB"
+    },
+    "State_0BDB": {
+      "move-star-chess-to-block-lowercase-a": "State_aBDB",
+      "move-circle-chess-to-block-uppercase-C": "State_0BCB",
+      "move-circle-chess-to-block-lowercase-d": "State_0BdB"
+    },
+    "State_0BaB": {
+      "move-star-chess-to-block-lowercase-a": "State_aTaB",
+      "move-circle-chess-to-block-uppercase-A": "State_0BAB",
+      "move-circle-chess-to-block-0": "State_0B0T"
+    },
+    "State_0BcB": {
+      "move-star-chess-to-block-lowercase-a": "State_aBcB",
+      "move-circle-chess-to-block-uppercase-C": "State_0BCB",
+      "move-circle-chess-to-block-lowercase-d": "State_0BdB"
+    },
+    "State_0BdB": {
+      "move-star-chess-to-block-lowercase-a": "State_aBdB",
+      "move-circle-chess-to-block-uppercase-D": "State_0BDB",
+      "move-circle-chess-to-block-lowercase-c": "State_0BcB",
+      "move-circle-chess-to-block-1": "State_0B1B"
+    },
+    "State_0B0T": {
+      "move-circle-chess-to-block-lowercase-a": "State_0BaB"
+    },
+    "State_0B1B": {
+      "move-star-chess-to-block-lowercase-a": "State_aB1B",
+      "move-circle-chess-to-block-lowercase-d": "State_0BdB"
+    },
+    "State_1T1B": {
+      "move-star-chess-to-block-lowercase-d": "State_dB1B"
+    },
+    "State_1BAB": {
+      "move-star-chess-to-block-lowercase-d": "State_dBAB",
+      "move-circle-chess-to-block-uppercase-B": "State_1BBB",
+      "move-circle-chess-to-block-lowercase-a": "State_1BaB"
+    },
+    "State_1BBB": {
+      "move-star-chess-to-block-lowercase-d": "State_dBBB",
+      "move-circle-chess-to-block-uppercase-A": "State_1BAB",
+      "move-circle-chess-to-block-uppercase-C": "State_1BCB"
+    },
+    "State_1BCB": {
+      "move-star-chess-to-block-lowercase-d": "State_dBCB",
+      "move-circle-chess-to-block-uppercase-B": "State_1BBB",
+      "move-circle-chess-to-block-uppercase-D": "State_1BDB",
+      "move-circle-chess-to-block-lowercase-c": "State_1BcB"
+    },
+    "State_1BDB": {
+      "move-star-chess-to-block-lowercase-d": "State_dBDB",
+      "move-circle-chess-to-block-uppercase-C": "State_1BCB",
+      "move-circle-chess-to-block-lowercase-d": "State_1BdB"
+    },
+    "State_1BaB": {
+      "move-star-chess-to-block-lowercase-d": "State_dBaB",
+      "move-circle-chess-to-block-uppercase-A": "State_1BAB",
+      "move-circle-chess-to-block-0": "State_1B0B"
+    },
+    "State_1BcB": {
+      "move-star-chess-to-block-lowercase-d": "State_dBcB",
+      "move-circle-chess-to-block-uppercase-C": "State_1BCB",
+      "move-circle-chess-to-block-lowercase-d": "State_1BdB"
+    },
+    "State_1BdB": {
+      "move-star-chess-to-block-lowercase-d": "State_dTdB",
+      "move-circle-chess-to-block-uppercase-D": "State_1BDB",
+      "move-circle-chess-to-block-lowercase-c": "State_1BcB",
+      "move-circle-chess-to-block-1": "State_1B1T"
+    },
+    "State_1B0B": {
+      "move-star-chess-to-block-lowercase-d": "State_dB0B",
+      "move-circle-chess-to-block-lowercase-a": "State_1BaB"
+    },
+    "State_1B1T": {
+      "move-circle-chess-to-block-lowercase-d": "State_1BdB"
+    }
+  }
+}

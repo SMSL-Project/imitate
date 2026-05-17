@@ -1,0 +1,142 @@
+{
+    "SB1": {
+        "HEADER": {
+            "INITIAL": "State_aaa",
+            "NUM_FACTS": 3,
+            "NUM_STATES": 27,
+            "SUB_SBS": []
+        },
+        "State_aaa": {
+            "move_gray_hanoi_ring_to_the_center_of_blue_hanoi_stand": "State_baa",
+            "move_gray_hanoi_ring_to_the_center_of_red_hanoi_stand": "State_caa"
+        },
+        "State_baa": {
+            "move_gray_hanoi_ring_to_the_center_of_brown_hanoi_stand": "State_aaa",
+            "move_gray_hanoi_ring_to_the_center_of_red_hanoi_stand": "State_caa",
+            "move_yellow_hanoi_ring_to_the_center_of_red_hanoi_stand": "State_bca"
+        },
+        "State_caa": {
+            "move_gray_hanoi_ring_to_the_center_of_brown_hanoi_stand": "State_aaa",
+            "move_gray_hanoi_ring_to_the_center_of_blue_hanoi_stand": "State_baa",
+            "move_yellow_hanoi_ring_to_the_center_of_blue_hanoi_stand": "State_cba"
+        },
+        "State_bca": {
+            "move_gray_hanoi_ring_to_the_center_of_red_hanoi_stand": "State_cca",
+            "move_gray_hanoi_ring_to_the_center_of_brown_hanoi_stand": "State_aca",
+            "move_yellow_hanoi_ring_to_the_center_of_brown_hanoi_stand": "State_baa"
+        },
+        "State_cca": {
+            "move_gray_hanoi_ring_to_the_center_of_blue_hanoi_stand": "State_bca",
+            "move_gray_hanoi_ring_to_the_center_of_brown_hanoi_stand": "State_aca",
+            "move_green_hanoi_ring_to_the_center_of_blue_hanoi_stand": "State_ccb"
+        },
+        "State_aca": {
+            "move_gray_hanoi_ring_to_the_center_of_blue_hanoi_stand": "State_bca",
+            "move_gray_hanoi_ring_to_the_center_of_red_hanoi_stand": "State_cca",
+            "move_yellow_hanoi_ring_to_the_center_of_blue_hanoi_stand": "State_aba"
+        },
+        "State_cba": {
+            "move_gray_hanoi_ring_to_the_center_of_brown_hanoi_stand": "State_aba",
+            "move_gray_hanoi_ring_to_the_center_of_blue_hanoi_stand": "State_bba",
+            "move_yellow_hanoi_ring_to_the_center_of_brown_hanoi_stand": "State_caa"
+        },
+        "State_aba": {
+            "move_gray_hanoi_ring_to_the_center_of_red_hanoi_stand": "State_cba",
+            "move_gray_hanoi_ring_to_the_center_of_blue_hanoi_stand": "State_bba",
+            "move_yellow_hanoi_ring_to_the_center_of_red_hanoi_stand": "State_aca"
+        },
+        "State_bba": {
+            "move_gray_hanoi_ring_to_the_center_of_red_hanoi_stand": "State_cba",
+            "move_gray_hanoi_ring_to_the_center_of_brown_hanoi_stand": "State_aba",
+            "move_green_hanoi_ring_to_the_center_of_red_hanoi_stand": "State_bbc"
+        },
+        "State_ccb": {
+            "move_green_hanoi_ring_to_the_center_of_brown_hanoi_stand": "State_cca",
+            "move_gray_hanoi_ring_to_the_center_of_brown_hanoi_stand": "State_acb",
+            "move_gray_hanoi_ring_to_the_center_of_blue_hanoi_stand": "State_bcb"
+        },
+        "State_acb": {
+            "move_gray_hanoi_ring_to_the_center_of_red_hanoi_stand": "State_ccb",
+            "move_gray_hanoi_ring_to_the_center_of_blue_hanoi_stand": "State_bcb",
+            "move_yellow_hanoi_ring_to_the_center_of_blue_hanoi_stand": "State_abb"
+        },
+        "State_bcb": {
+            "move_gray_hanoi_ring_to_the_center_of_red_hanoi_stand": "State_ccb",
+            "move_gray_hanoi_ring_to_the_center_of_brown_hanoi_stand": "State_acb",
+            "move_yellow_hanoi_ring_to_the_center_of_brown_hanoi_stand": "State_bab"
+        },
+        "State_abb": {
+            "move_yellow_hanoi_ring_to_the_center_of_red_hanoi_stand": "State_acb",
+            "move_gray_hanoi_ring_to_the_center_of_blue_hanoi_stand": "State_bbb",
+            "move_gray_hanoi_ring_to_the_center_of_red_hanoi_stand": "State_cbb"
+        },
+        "State_bbb": {
+            "move_gray_hanoi_ring_to_the_center_of_brown_hanoi_stand": "State_abb",
+            "move_gray_hanoi_ring_to_the_center_of_red_hanoi_stand": "State_cbb"
+        },
+        "State_cbb": {
+            "move_gray_hanoi_ring_to_the_center_of_blue_hanoi_stand": "State_bbb",
+            "move_gray_hanoi_ring_to_the_center_of_brown_hanoi_stand": "State_abb",
+            "move_yellow_hanoi_ring_to_the_center_of_brown_hanoi_stand": "State_cab"
+        },
+        "State_bab": {
+            "move_yellow_hanoi_ring_to_the_center_of_red_hanoi_stand": "State_bcb",
+            "move_gray_hanoi_ring_to_the_center_of_red_hanoi_stand": "State_cab",
+            "move_gray_hanoi_ring_to_the_center_of_brown_hanoi_stand": "State_aab"
+        },
+        "State_cab": {
+            "move_yellow_hanoi_ring_to_the_center_of_blue_hanoi_stand": "State_cbb",
+            "move_gray_hanoi_ring_to_the_center_of_blue_hanoi_stand": "State_bab",
+            "move_gray_hanoi_ring_to_the_center_of_brown_hanoi_stand": "State_aab"
+        },
+        "State_aab": {
+            "move_gray_hanoi_ring_to_the_center_of_blue_hanoi_stand": "State_bab",
+            "move_gray_hanoi_ring_to_the_center_of_red_hanoi_stand": "State_cab",
+            "move_green_hanoi_ring_to_the_center_of_red_hanoi_stand": "State_aac"
+        },
+        "State_bbc": {
+            "move_green_hanoi_ring_to_the_center_of_brown_hanoi_stand": "State_bba",
+            "move_gray_hanoi_ring_to_the_center_of_red_hanoi_stand": "State_cbc",
+            "move_gray_hanoi_ring_to_the_center_of_brown_hanoi_stand": "State_abc"
+        },
+        "State_cbc": {
+            "move_gray_hanoi_ring_to_the_center_of_blue_hanoi_stand": "State_bbc",
+            "move_gray_hanoi_ring_to_the_center_of_brown_hanoi_stand": "State_abc",
+            "move_yellow_hanoi_ring_to_the_center_of_brown_hanoi_stand": "State_cac"
+        },
+        "State_abc": {
+            "move_gray_hanoi_ring_to_the_center_of_blue_hanoi_stand": "State_bbc",
+            "move_gray_hanoi_ring_to_the_center_of_red_hanoi_stand": "State_cbc",
+            "move_yellow_hanoi_ring_to_the_center_of_red_hanoi_stand": "State_acc"
+        },
+        "State_cac": {
+            "move_yellow_hanoi_ring_to_the_center_of_blue_hanoi_stand": "State_cbc",
+            "move_gray_hanoi_ring_to_the_center_of_brown_hanoi_stand": "State_aac",
+            "move_gray_hanoi_ring_to_the_center_of_blue_hanoi_stand": "State_bac"
+        },
+        "State_aac": {
+            "move_green_hanoi_ring_to_the_center_of_blue_hanoi_stand": "State_aab",
+            "move_gray_hanoi_ring_to_the_center_of_red_hanoi_stand": "State_cac",
+            "move_gray_hanoi_ring_to_the_center_of_blue_hanoi_stand": "State_bac"
+        },
+        "State_bac": {
+            "move_gray_hanoi_ring_to_the_center_of_red_hanoi_stand": "State_cac",
+            "move_gray_hanoi_ring_to_the_center_of_brown_hanoi_stand": "State_aac",
+            "move_yellow_hanoi_ring_to_the_center_of_red_hanoi_stand": "State_bcc"
+        },
+        "State_acc": {
+            "move_yellow_hanoi_ring_to_the_center_of_blue_hanoi_stand": "State_abc",
+            "move_gray_hanoi_ring_to_the_center_of_blue_hanoi_stand": "State_bcc",
+            "move_gray_hanoi_ring_to_the_center_of_red_hanoi_stand": "State_ccc"
+        },
+        "State_bcc": {
+            "move_gray_hanoi_ring_to_the_center_of_red_hanoi_stand": "State_ccc",
+            "move_yellow_hanoi_ring_to_the_center_of_brown_hanoi_stand": "State_bac",
+            "move_gray_hanoi_ring_to_the_center_of_brown_hanoi_stand": "State_acc"
+        },
+        "State_ccc": {
+            "move_gray_hanoi_ring_to_the_center_of_brown_hanoi_stand": "State_acc",
+            "move_gray_hanoi_ring_to_the_center_of_blue_hanoi_stand": "State_bcc"
+        }
+    }
+}

@@ -1,0 +1,182 @@
+{
+    "SB1": {
+        "HEADER": {
+            "INITIAL": "State_0000",
+            "NUM_FACTS": 4,
+            "NUM_STATES": 40,
+            "SUB_SBS": []
+        },
+        "State_B100": {
+            "move_grass_from_boat_to_red_land": "State_0100",
+            "move_steve_from_red_land_to_boat": "State_B1B0"
+        },
+        "State_0B10": {
+            "move_sheep_from_boat_to_green_land": "State_0110",
+            "move_steve_from_green_land_to_boat": "State_0BB0"
+        },
+        "State_B1B0": {
+            "move_grass_from_boat_to_red_land": "State_01B0",
+            "move_steve_from_boat_to_red_land": "State_B100",
+            "move_steve_from_boat_to_green_land": "State_B110"
+        },
+        "State_1111": {
+            "move_sheep_from_green_land_to_boat": "State_1B11",
+            "move_wolf_from_green_land_to_boat": "State_111B",
+            "move_grass_from_green_land_to_boat": "State_B111"
+        },
+        "State_010B": {
+            "move_wolf_from_boat_to_red_land": "State_0100",
+            "move_steve_from_red_land_to_boat": "State_01BB"
+        },
+        "State_0B11": {
+            "move_sheep_from_boat_to_green_land": "State_0111",
+            "move_steve_from_green_land_to_boat": "State_0BB1"
+        },
+        "State_0B00": {
+            "move_sheep_from_boat_to_red_land": "State_0000",
+            "move_steve_from_red_land_to_boat": "State_0BB0"
+        },
+        "State_111B": {
+            "move_wolf_from_boat_to_green_land": "State_1111"
+        },
+        "State_1B01": {
+            "move_sheep_from_boat_to_red_land": "State_1001",
+            "move_steve_from_red_land_to_boat": "State_1BB1"
+        },
+        "State_0000": {
+            "move_sheep_from_red_land_to_boat": "State_0B00",
+            "move_wolf_from_red_land_to_boat": "State_000B",
+            "move_grass_from_red_land_to_boat": "State_B000"
+        },
+        "State_1BB1": {
+            "move_sheep_from_boat_to_red_land": "State_10B1",
+            "move_steve_from_boat_to_red_land": "State_1B01",
+            "move_steve_from_boat_to_green_land": "State_1B11"
+        },
+        "State_0111": {
+            "move_sheep_from_green_land_to_boat": "State_0B11",
+            "move_wolf_from_green_land_to_boat": "State_011B"
+        },
+        "State_0BB1": {
+            "move_steve_from_boat_to_red_land": "State_0B01",
+            "move_steve_from_boat_to_green_land": "State_0B11"
+        },
+        "State_1110": {
+            "move_sheep_from_green_land_to_boat": "State_1B10",
+            "move_grass_from_green_land_to_boat": "State_B110"
+        },
+        "State_0001": {
+            "move_sheep_from_red_land_to_boat": "State_0B01",
+            "move_grass_from_red_land_to_boat": "State_B001"
+        },
+        "State_011B": {
+            "move_wolf_from_boat_to_green_land": "State_0111",
+            "move_steve_from_green_land_to_boat": "State_01BB"
+        },
+        "State_B000": {
+            "move_grass_from_boat_to_red_land": "State_0000"
+        },
+        "State_1B10": {
+            "move_sheep_from_boat_to_green_land": "State_1110",
+            "move_steve_from_green_land_to_boat": "State_1BB0"
+        },
+        "State_B111": {
+            "move_grass_from_boat_to_green_land": "State_1111"
+        },
+        "State_01BB": {
+            "move_wolf_from_boat_to_red_land": "State_01B0",
+            "move_steve_from_boat_to_red_land": "State_010B",
+            "move_steve_from_boat_to_green_land": "State_011B"
+        },
+        "State_B011": {
+            "move_grass_from_boat_to_green_land": "State_1011",
+            "move_steve_from_green_land_to_boat": "State_B0B1"
+        },
+        "State_000B": {
+            "move_wolf_from_boat_to_red_land": "State_0000"
+        },
+        "State_1000": {
+            "move_sheep_from_red_land_to_boat": "State_1B00",
+            "move_wolf_from_red_land_to_boat": "State_100B"
+        },
+        "State_B001": {
+            "move_grass_from_boat_to_red_land": "State_0001",
+            "move_steve_from_red_land_to_boat": "State_B0B1"
+        },
+        "State_1B11": {
+            "move_sheep_from_boat_to_green_land": "State_1111",
+            "move_steve_from_green_land_to_boat": "State_1BB1"
+        },
+        "State_1B00": {
+            "move_sheep_from_boat_to_red_land": "State_1000",
+            "move_steve_from_red_land_to_boat": "State_1BB0"
+        },
+        "State_B0B1": {
+            "move_grass_from_boat_to_green_land": "State_10B1",
+            "move_steve_from_boat_to_red_land": "State_B001",
+            "move_steve_from_boat_to_green_land": "State_B011"
+        },
+        "State_1011": {
+            "move_wolf_from_green_land_to_boat": "State_101B",
+            "move_grass_from_green_land_to_boat": "State_B011",
+            "move_steve_from_green_land_to_boat": "State_10B1"
+        },
+        "State_1BB0": {
+            "move_steve_from_boat_to_red_land": "State_1B00",
+            "move_steve_from_boat_to_green_land": "State_1B10"
+        },
+        "State_0110": {
+            "move_sheep_from_green_land_to_boat": "State_0B10",
+            "move_steve_from_green_land_to_boat": "State_01B0"
+        },
+        "State_0BB0": {
+            "move_sheep_from_boat_to_green_land": "State_01B0",
+            "move_steve_from_boat_to_red_land": "State_0B00",
+            "move_steve_from_boat_to_green_land": "State_0B10"
+        },
+        "State_1001": {
+            "move_sheep_from_red_land_to_boat": "State_1B01",
+            "move_steve_from_red_land_to_boat": "State_10B1"
+        },
+        "State_0B01": {
+            "move_sheep_from_boat_to_red_land": "State_0001",
+            "move_steve_from_red_land_to_boat": "State_0BB1"
+        },
+        "State_0100": {
+            "move_wolf_from_red_land_to_boat": "State_010B",
+            "move_grass_from_red_land_to_boat": "State_B100",
+            "move_steve_from_red_land_to_boat": "State_01B0"
+        },
+        "State_10B1": {
+            "move_sheep_from_red_land_to_boat": "State_1BB1",
+            "move_wolf_from_green_land_to_boat": "State_10BB",
+            "move_grass_from_green_land_to_boat": "State_B0B1",
+            "move_steve_from_boat_to_red_land": "State_1001",
+            "move_steve_from_boat_to_green_land": "State_1011"
+        },
+        "State_B110": {
+            "move_grass_from_boat_to_green_land": "State_1110",
+            "move_steve_from_green_land_to_boat": "State_B1B0"
+        },
+        "State_01B0": {
+            "move_wolf_from_red_land_to_boat": "State_01BB",
+            "move_grass_from_red_land_to_boat": "State_B1B0",
+            "move_sheep_from_green_land_to_boat": "State_0BB0",
+            "move_steve_from_boat_to_red_land": "State_0100",
+            "move_steve_from_boat_to_green_land": "State_0110"
+        },
+        "State_101B": {
+            "move_wolf_from_boat_to_green_land": "State_1011",
+            "move_steve_from_green_land_to_boat": "State_10BB"
+        },
+        "State_100B": {
+            "move_wolf_from_boat_to_red_land": "State_1000",
+            "move_steve_from_red_land_to_boat": "State_10BB"
+        },
+        "State_10BB": {
+            "move_wolf_from_boat_to_green_land": "State_10B1",
+            "move_steve_from_boat_to_red_land": "State_100B",
+            "move_steve_from_boat_to_green_land": "State_101B"
+        }
+    }
+}

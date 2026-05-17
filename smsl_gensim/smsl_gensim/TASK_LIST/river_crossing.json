@@ -1,0 +1,18 @@
+[
+    "move-grass-from-boat-to-green-land",
+    "move-grass-from-boat-to-red-land",
+    "move-grass-from-green-land-to-boat",
+    "move-grass-from-red-land-to-boat",
+    "move-sheep-from-boat-to-green-land",
+    "move-sheep-from-boat-to-red-land",
+    "move-sheep-from-green-land-to-boat",
+    "move-sheep-from-red-land-to-boat",
+    "move-steve-from-boat-to-green-land",
+    "move-steve-from-boat-to-red-land",
+    "move-steve-from-green-land-to-boat",
+    "move-steve-from-red-land-to-boat",
+    "move-wolf-from-boat-to-green-land",
+    "move-wolf-from-boat-to-red-land",
+    "move-wolf-from-green-land-to-boat",
+    "move-wolf-from-red-land-to-boat"
+]

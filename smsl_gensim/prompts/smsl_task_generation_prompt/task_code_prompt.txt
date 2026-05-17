@@ -1,0 +1,113 @@
+Generate one CLIPort task module from this SMSL task specification.
+
+Scenario: {scenario}
+Class name: {class_name}
+Task specification:
+{task_spec_json}
+
+The scene has already been initialized from SMSL. Do not call env.add_object.
+env.asset_ids_dict is nested by object category:
+- picked movable objects must use env.asset_ids_dict["rigid"]["<urdf_path>"]
+- fixed targets must use env.asset_ids_dict["fixed"]["<urdf_path>"]
+Never use env.asset_ids_dict["<urdf_path>"] directly.
+Use object IDs in add_goal(objs=[...]), not poses.
+Use only env.asset_ids_dict, env.asset_poses_dict, env.smsl_scene_state, env.get_object_pose,
+utils.apply, and self.add_goal.
+utils.apply accepts exactly two arguments: utils.apply(base_pose, (x, y, z)).
+
+Required class shape:
+- import numpy as np
+- import Task from cliport.tasks.task
+- import exactly `from cliport.utils import utils` when applying target offsets
+- class name must be exactly {class_name}
+- __init__ must call super().__init__(), set self.max_steps = 1, self.lang_template,
+  self.task_completed_desc, and self.additional_reset()
+- reset must call super().reset(env)
+- add one goal with matches=np.ones((1, 1)), replace=False, step_max_reward=1,
+  language_goal=self.lang_template
+- always use rotations=False; SMSL primitive tasks are position-only
+- add_goal objs must contain the picked object ID, for example objs=[ring_id]
+- when the task target is the center/spawn pose of a fixed object, use
+  env.asset_poses_dict[env.smsl_scene_state]["<fixed_urdf>"] or env.get_object_pose(fixed_id)
+- when URDF inspection is provided, use the inspected joint/link offset as one (x, y, z) tuple with utils.apply
+- utils.apply returns a position, not a pose; wrap positions as (position, base_pose[1]) when add_goal or zone params need poses
+- for chess and river_crossing tasks, use metric="zone", rotations=False, and params=[(zone_pose, zone_size)]
+- for chess and river_crossing tasks, keep zone_pose fixed at the target region center, then sample target_pose inside that zone with np.random.uniform; do not omit np.random.uniform
+- for chess and river_crossing zone rewards, only the XY extents of zone_pose and zone_size judge success; target z is only the oracle placement height
+- for zone goals, always pass targ_poses=[target_pose] for the oracle and params=[(zone_pose, zone_size)] for the XY reward region
+- for zone goals, target_pose must be a pose tuple: target_pose = (target_position, zone_pose[1])
+- for chess, do not infer target height from chess/board.urdf joints; board joints use z=0.020 but chess piece targets must use z=0.040
+- for chess, use zone_size=(0.150, 0.150, 0.080), dx=np.random.uniform(-0.020, 0.020), and dy=np.random.uniform(-0.020, 0.020)
+- for chess target labels, use these board-relative target offsets:
+  0=(-0.150, -0.100, 0.040), 1=(0.150, -0.100, 0.040),
+  a=(-0.150, 0.000, 0.040), c=(0.050, 0.000, 0.040), d=(0.150, 0.000, 0.040),
+  A=(-0.150, 0.100, 0.040), B=(-0.050, 0.100, 0.040), C=(0.050, 0.100, 0.040), D=(0.150, 0.100, 0.040)
+- for chess, compute zone_position = utils.apply(board_pose, (<label_x>, <label_y>, 0.040)), then zone_pose = (zone_position, board_pose[1])
+- for chess, target_position must be `utils.apply(zone_pose, (dx, dy, 0.0))`; never sample z because z does not affect reward
+- for river_crossing, use zone_size=(0.18, 0.20, 0.10) for the boat and zone_size=(0.26, 0.28, 0.10) for red/green land
+- for river_crossing, target_position must be near one sampled destination slot, not anywhere in the whole destination region
+- for river_crossing, destination slots are permutable; the moved item may land in any one of these slots: (0.02, 0.02), (-0.02, 0.02), (-0.02, -0.02), (0.02, -0.02)
+- for river_crossing, sample the destination slot with np.random.randint from the four slot offsets; do not bind a fixed slot to grass/sheep/steve/wolf
+- for river_crossing target jitter on the boat, use exactly dx=np.random.uniform(-0.015, 0.015) and dy=np.random.uniform(-0.010, 0.010)
+- for river_crossing target jitter on red/green land, use exactly dx=np.random.uniform(-0.035, 0.035) and dy=np.random.uniform(-0.050, 0.050)
+- for river_crossing, target_position must be `utils.apply(zone_pose, (slot_x + dx, slot_y + dy, 0.04))`
+- for river_crossing, never sample z because z does not affect reward, never sample target_position directly from zone_size, never use the full land/boat extent as random bounds, and never use placeholder zone_size=(0.1, 0.1, 0.1)
+- for hanoi tasks, keep metric="pose" and rotations=False
+- pass metric directly in add_goal as the literal string "pose" or "zone"; do not pass metric through a variable
+
+Compact module skeleton:
+Fill every placeholder from the task specification and scenario rules. Do not copy placeholder names into the final code.
+```python
+import numpy as np
+from cliport.tasks.task import Task
+from cliport.utils import utils
+
+
+class {class_name}(Task):
+    def __init__(self):
+        super().__init__()
+        self.max_steps = 1
+        self.lang_template = "<language instruction>"
+        self.task_completed_desc = "<completion text>"
+        self.additional_reset()
+
+    def reset(self, env):
+        super().reset(env)
+        obj_id = env.asset_ids_dict["rigid"]["<picked_urdf>"]
+        fixed_id = env.asset_ids_dict["fixed"]["<target_urdf>"]
+        base_pose = env.get_object_pose(fixed_id)
+        target_pose = <target_pose>
+        params = <params_or_none>
+
+        self.add_goal(
+            objs=[obj_id],
+            matches=np.ones((1, 1)),
+            targ_poses=[target_pose],
+            replace=False,
+            rotations=False,
+            metric="<pose_or_zone>",
+            params=params,
+            step_max_reward=1,
+            language_goal=self.lang_template,
+        )
+```
+
+Zone target skeleton:
+Use this shape for chess and river_crossing tasks. `utils.apply` returns a position. `zone_pose` and `target_pose` must be pose tuples.
+```python
+zone_position = utils.apply(base_pose, (<region_x>, <region_y>, <region_z>))
+zone_pose = (zone_position, base_pose[1])
+dx = np.random.uniform(<low_x>, <high_x>)
+dy = np.random.uniform(<low_y>, <high_y>)
+target_position = utils.apply(zone_pose, (<target_x> + dx, <target_y> + dy, <target_z>))
+target_pose = (target_position, zone_pose[1])
+zone_size = (<zone_x>, <zone_y>, <zone_z>)
+```
+
+URDF inspection context:
+{urdf_inspection}
+
+Return only:
+```python
+<complete module>
+```
