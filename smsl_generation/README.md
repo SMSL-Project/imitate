@@ -2,6 +2,12 @@
 
 `smsl_generation/` generates SMSL JSON artifacts intended to match the scenario files in `smsl_gensim/smsl_gensim/SMSL_JSON/`.
 
+## Overview
+
+![SMSL generation summary](../media/summary.png)
+
+![SMSL generation tasks](../media/tasks.png)
+
 ## Package Layout
 
 ```text

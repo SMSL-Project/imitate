@@ -1,5 +1,9 @@
 # SMSL GenSim
 
+| Chess | Hanoi | River |
+| --- | --- | --- |
+| <img src="../media/chess.gif" alt="Chess scenario GIF" width="250" /> | <img src="../media/hanoi.gif" alt="Hanoi scenario GIF" width="250" /> | <img src="../media/river.gif" alt="River scenario GIF" width="250" /> |
+
 `smsl_gensim/` provides the GenSim and CLIPort simulation backend for language-conditioned robotic manipulation experiments.
 
 This package supports the standard GenSim workflow:

@@ -1,5 +1,9 @@
 # imitate
 
+| Chess | Hanoi | River |
+| --- | --- | --- |
+| <img src="media/chess.gif" alt="Chess scenario GIF" width="250" /> | <img src="media/hanoi.gif" alt="Hanoi scenario GIF" width="250" /> | <img src="media/river.gif" alt="River scenario GIF" width="250" /> |
+
 ## Packages
 
 - `smsl_generation/`: generates scenario-specific SMSL JSON artifacts.
@@ -67,6 +71,10 @@ python -m smsl_gensim eval-scenario hanoi
 python -m smsl_gensim collect-one hanoi --from-state State_aaa --operation move_gray_hanoi_ring_to_the_center_of_blue_hanoi_stand
 cd ..
 ```
+
+![SMSL generation summary](media/summary.png)
+
+![SMSL generation tasks](media/tasks.png)
 
 ## Citation
 
